@@ -17,6 +17,10 @@ public class Grid
         this.grid = grid;
     }
 
+    public char[][] getGrid() {
+      return this.grid;
+    }
+
     /**
      * Gives the height of the grid.
      * @return height
