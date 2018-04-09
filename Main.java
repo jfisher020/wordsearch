@@ -4,7 +4,7 @@ package wordsearch;
  * Small word search solver.
  * @author Flip van Rijn
  */
-public class Main extends Wordsearch
+public class Main
 {
 
     /**
@@ -12,28 +12,37 @@ public class Main extends Wordsearch
      */
     public static void main(String[] args)
     {
-/*        char[][] grid = {
-*            {'v', 'n', 'y', 'b', 'k', 'g', 's'},
-*            {'r', 'o', 'r', 'a', 'n', 'g', 'e'},
-*            {'e', 't', 'r', 'n', 'x', 'w', 'p'},
-*            {'l', 'a', 'e', 'a', 'l', 'k', 'a'},
-*            {'p', 'm', 'h', 'n', 'w', 'm', 'r'},
-*            {'p', 'o', 'c', 'a', 'x', 'b', 'g'},
-*            {'a', 't', 'n', 'o', 'm', 'e', 'l'}
-*        };
-*          String[] words = {
-*            "apple", "banana", "cherry", "grapes",
-*            "lemon", "orange", "tomato", "ham"
-*          };
-*/
-        Wordsearch test = new Wordsearch();
-        char[][] grid = test.getBoard();
-        String[] words = test.getWords();
+        /*
+         * Uses a wordsearch generator as input.
+         * char[][] grid is how you can enter your own wordsearch Board.
+         * String[] words holds the words that are search for.
+         * This is where you can change which board is being solved.
+         */
+        //WordsearchGenerator test = new WordsearchGenerator();
+        //char[][] grid = test.getBoard();
+        //String[] words = test.getWords();
+
+        char[][] grid = new char[][](5);
+        String[] words = new String[]("ian");
 
 
+        for(int i = 0; i<5; i++) {
+          for(int j = 0; j<5, j++) {
+            grid[i][j] = 'a';
+          }
+        }
+        grid[0][0] = 'i';
+        grid[0][2] = 'n';
+
+        //Solves wordsearch
         Solver solver = new Solver(grid, words);
         solver.solve();
 
+        //Creates solved wordsearch graphic
+        Board picture = new Board(grid, solver.solutions);
+        picture.showBoard();
+
+        //Prints wordsearch, words, and locations of solutions in console.
         System.out.println(solver);
     }
 
