@@ -8,9 +8,9 @@ import java.util.*;
  */
 public class Solver
 {
-    private Grid grid;
-    private String[] words;
-    private Map<String, Coord> solutions = new HashMap<String, Coord>();
+    Grid grid;
+    String[] words;
+    HashMap<String, Coord> solutions = new HashMap<String, Coord>();
 
     /**
      * Class for the coordinates of the begin and end position of a word.
@@ -24,6 +24,22 @@ public class Solver
             this.startY = startY;
             this.endX = endX;
             this.endY = endY;
+        }
+
+        public int getStartX() {
+          return startX;
+        }
+
+        public int getStartY() {
+          return startY;
+        }
+
+        public int getEndX() {
+          return endX;
+        }
+
+        public int getEndY() {
+          return endY;
         }
 
         /**
